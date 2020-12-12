@@ -38,7 +38,7 @@ module.exports = {
     publicPath: '/',
     historyApiFallback: true,
     port: parseInt(process.env.CLIENT_PORT, 10),
-    open: process.env.OPEN_BROWSER === 'true' ? true : false,
+    open: process.env.OPEN_BROWSER === 'true',
     proxy: {
       '/api': `http://localhost:${process.env.API_PORT}`,
     },
@@ -55,7 +55,7 @@ module.exports = {
     }),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
-      safe: false,
+      path: path.resolve(__dirname, './.env'),
     }),
   ],
 };

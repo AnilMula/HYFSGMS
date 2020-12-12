@@ -56,7 +56,7 @@ module.exports = {
     }),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
-      path: path.resolve(__dirname, '.env'),
+      path: path.resolve(__dirname, './.env'),
     }),
   ],
 };
