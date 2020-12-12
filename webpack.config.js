@@ -1,8 +1,13 @@
 require('dotenv').config();
 const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+//
+const webpack = require('webpack');
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, '.env'),
+});
 
 const outputDirectory = 'dist';
 
@@ -48,5 +53,9 @@ module.exports = {
     tls: 'empty',
     dns: 'empty',
   },
-  plugins: [new Dotenv({ path: './.env', safe: false })],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': dotenv.parsed,
+    }),
+  ],
 };
