@@ -3,6 +3,7 @@ const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const outputDirectory = 'dist';
 
@@ -55,7 +56,10 @@ module.exports = {
     }),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
-      path: path.resolve(__dirname, './.env'),
+      path: path.resolve(__dirname, '../..', '.env'),
+    }),
+    new webpack.DefinePlugin({
+      'process.env.SUPERTEST': JSON.stringify('This is a test'),
     }),
   ],
 };
