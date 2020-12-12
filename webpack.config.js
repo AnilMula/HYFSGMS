@@ -48,12 +48,5 @@ module.exports = {
     tls: 'empty',
     dns: 'empty',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      favicon: './public/favicon.ico',
-    }),
-    new CaseSensitivePathsPlugin(),
-    new Dotenv({ safe: false }),
-  ],
+  plugins: [new Dotenv({ safe: false })],
 };
