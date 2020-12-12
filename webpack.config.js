@@ -54,6 +54,6 @@ module.exports = {
       favicon: './public/favicon.ico',
     }),
     new CaseSensitivePathsPlugin(),
-    new Dotenv({ safe: true }),
+    new Dotenv({ safe: false }),
   ],
 };
