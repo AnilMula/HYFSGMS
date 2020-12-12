@@ -48,5 +48,5 @@ module.exports = {
     tls: 'empty',
     dns: 'empty',
   },
-  plugins: [new Dotenv({ safe: true })],
+  plugins: [new Dotenv({ path: './.env', safe: false })],
 };
