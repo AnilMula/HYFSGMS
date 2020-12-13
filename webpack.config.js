@@ -5,7 +5,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //
 const webpack = require('webpack');
-const dotenv = require('dotenv').config({
+const Dotenv = require('dotenv-webpack').config({
   path: path.join(__dirname, '.env'),
 });
 
@@ -54,8 +54,11 @@ module.exports = {
     dns: 'empty',
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': dotenv.parsed,
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
     }),
+    new CaseSensitivePathsPlugin(),
+    new Dotenv({ path: path.resolve(__dirname, '.env') }),
   ],
 };
