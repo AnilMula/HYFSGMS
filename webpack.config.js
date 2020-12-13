@@ -5,9 +5,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //
 const webpack = require('webpack');
-const dotenv = require('dotenv-webpack').config({
-  path: path.join(__dirname, '.env'),
-});
+const dotenv = require('dotenv-webpack');
 
 const outputDirectory = 'dist';
 
