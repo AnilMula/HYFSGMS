@@ -25,12 +25,4 @@ module.exports = {
     'react/state-in-constructor': 'off',
     'react/no-access-state-in-setstate': 'off',
   },
-  overrides: [
-    {
-      files: ['**/seeds/**/*.js', '**/controllers/**/*.js'],
-      rules: {
-        '@typescript-eslint/camelcase': 'off',
-      },
-    },
-  ],
 };
