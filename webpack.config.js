@@ -1,11 +1,8 @@
 require('dotenv').config();
 const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-//
-const webpack = require('webpack');
-const dotenv = require('dotenv-webpack');
 
 const outputDirectory = 'dist';
 
@@ -41,7 +38,7 @@ module.exports = {
     publicPath: '/',
     historyApiFallback: true,
     port: parseInt(process.env.CLIENT_PORT, 10),
-    open: process.env.OPEN_BROWSER === 'true',
+    open: process.env.OPEN_BROWSER === 'true' ? true : false,
     proxy: {
       '/api': `http://localhost:${process.env.API_PORT}`,
     },
@@ -57,8 +54,8 @@ module.exports = {
       favicon: './public/favicon.ico',
     }),
     new CaseSensitivePathsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': dotenv.parsed,
+    new Dotenv({
+      safe: false,
     }),
   ],
 };
