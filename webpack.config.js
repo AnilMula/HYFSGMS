@@ -10,7 +10,7 @@ module.exports = {
   entry: ['babel-polyfill', './src/client/index.js'],
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: 'bundle.js',
+    filename: 'index_bundle.js',
   },
   module: {
     rules: [
@@ -38,7 +38,7 @@ module.exports = {
     publicPath: '/',
     historyApiFallback: true,
     port: parseInt(process.env.CLIENT_PORT, 10),
-    open: process.env.OPEN_BROWSER === 'true' ? true : false,
+    open: process.env.OPEN_BROWSER === 'true',
     proxy: {
       '/api': `http://localhost:${process.env.API_PORT}`,
     },
@@ -49,10 +49,7 @@ module.exports = {
     dns: 'empty',
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      favicon: './public/favicon.ico',
-    }),
+    new HtmlWebpackPlugin(),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
       safe: false,
