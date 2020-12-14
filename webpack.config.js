@@ -7,7 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const outputDirectory = 'dist';
 
 module.exports = {
-  mode: 'production',
   entry: { app: './src/client/index.js' },
   output: {
     path: path.join(__dirname, outputDirectory),
