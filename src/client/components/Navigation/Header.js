@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { signOut } from '../../firebase/auth';
+
+function signOut() {
+  window.location.href = '/';
+}
 
 export default function Header({ isAuthenticated = false }) {
   if (isAuthenticated) {
