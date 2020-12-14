@@ -7,10 +7,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const outputDirectory = 'dist';
 
 module.exports = {
-  entry: ['babel-polyfill', './src/client/index.js'],
+  mode: 'production',
+  entry: { app: './src/client/index.js' },
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: 'index_bundle.js',
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -49,7 +50,10 @@ module.exports = {
     dns: 'empty',
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
+    }),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
       safe: false,
