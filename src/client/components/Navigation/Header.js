@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Login from '../../containers/LoginPage/LoginPage.component';
 
 function signOut() {
   window.location.href = '/';
@@ -43,9 +42,7 @@ export default function Header({ isAuthenticated = false }) {
           <Link to="/reset-password">Reset password</Link>
         </li>
         <li>
-          <Link to="/login">
-            <Login />
-          </Link>
+          <Link to="/login">login</Link>
         </li>
       </ul>
     </nav>
