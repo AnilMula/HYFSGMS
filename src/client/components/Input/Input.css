@@ -1,6 +1,6 @@
 .input-component {
   display: block;
-  width: 400px;
+  width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: 2rem;
@@ -9,4 +9,5 @@
   font: Roboto;
   height: 3rem;
   font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
 }
