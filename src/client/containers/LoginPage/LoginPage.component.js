@@ -4,9 +4,9 @@ import { HyfLogo } from '../../components/HyfBigLogo/HyfBigLogo.stories';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
 
 export default function LoginPage() {
-  const client = process.env.REACT_APP_SLACK_CLIENT_ID;
+  const env = runtimeEnv();
+  const client = env.REACT_APP_SLACK_CLIENT_ID;
   const authenticateUser = () => {
-    const env = runtimeEnv();
     const clientId = env.REACT_APP_SLACK_CLIENT_ID;
     const oauthUrl = `https://slack.com/oauth/v2/authorize?client_id=${clientId}&user_scope=identity.basic`;
     window.location = oauthUrl;
