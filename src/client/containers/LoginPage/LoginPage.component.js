@@ -14,7 +14,9 @@ export default function LoginPage() {
       <HyfLogo />
 
       <Button onClick={authenticateUser} />
-      <p>client number{client}</p>
+      <p>client number: {client}</p>
+      <p>env variables: {process.env.NODE_ENV}</p>
+      <p>public url: {process.env.PUBLIC_URL}</p>
     </>
   );
 }
