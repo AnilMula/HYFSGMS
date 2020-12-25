@@ -2,6 +2,8 @@ import React from 'react';
 import Button from '../../components/SignInButton/Button';
 import { HyfLogo } from '../../components/HyfBigLogo/HyfBigLogo.stories';
 
+require('dotenv').config();
+
 export default function LoginPage() {
   const authenticateUser = () => {
     const clientId = process.env.REACT_APP_SLACK_CLIENT_ID;
