@@ -62,7 +62,6 @@ module.exports = {
     new DotenvPlugin({
       // makes vars available to the application js code
       path: './.env',
-      sample: './.env.example',
       allowEmptyValues: true,
     }),
   ],
