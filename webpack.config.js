@@ -1,8 +1,9 @@
-require('dotenv').config();
+require('dotenv').config({ path: '.env' });
 const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotenvPlugin = require('webpack-dotenv-plugin');
 
 const outputDirectory = 'dist';
 
@@ -52,15 +53,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico',
-      env: {
-        REACT_APP_SLACK_CLIENT_ID: process.env.REACT_APP_SLACK_CLIENT_ID,
-        REACT_APP_SLACK_CLIENT_SECRET:
-          process.removeListener.REACT_APP_SLACK_CLIENT_SECRET,
-      },
     }),
+
     new CaseSensitivePathsPlugin(),
     new Dotenv({
       safe: false,
+    }),
+    new DotenvPlugin({
+      // makes vars available to the application js code
+      path: './.env',
+      sample: './.env.example',
+      allowEmptyValues: true,
     }),
   ],
 };
