@@ -38,7 +38,7 @@ module.exports = {
     publicPath: '/',
     historyApiFallback: true,
     port: parseInt(process.env.CLIENT_PORT, 10),
-    open: process.env.OPEN_BROWSER === 'true' ? true : false,
+    open: process.env.OPEN_BROWSER === 'true',
     proxy: {
       '/api': `http://localhost:${process.env.API_PORT}`,
     },
@@ -52,6 +52,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico',
+      env: {
+        REACT_APP_SLACK_CLIENT_ID: process.env.REACT_APP_SLACK_CLIENT_ID,
+        REACT_APP_SLACK_CLIENT_SECRET:
+          process.removeListener.REACT_APP_SLACK_CLIENT_SECRET,
+      },
     }),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
