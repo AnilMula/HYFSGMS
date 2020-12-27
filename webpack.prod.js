@@ -56,6 +56,8 @@ module.exports = {
     }),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
+
+      path: path.resolve(__dirname, './.env'),
       safe: false,
     }),
     new webpack.DefinePlugin({
