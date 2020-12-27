@@ -4,6 +4,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+
 const outputDirectory = 'dist';
 
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
     publicPath: '/',
     historyApiFallback: true,
     port: parseInt(process.env.CLIENT_PORT, 10),
-    open: process.env.OPEN_BROWSER === 'true' ? true : false,
+    open: process.env.OPEN_BROWSER === 'true',
     proxy: {
       '/api': `http://localhost:${process.env.API_PORT}`,
     },
@@ -54,9 +55,9 @@ module.exports = {
       template: './public/index.html',
       favicon: './public/favicon.ico',
     }),
+
     new CaseSensitivePathsPlugin(),
     new Dotenv({
-
       path: path.resolve(__dirname, './.env'),
       safe: false,
     }),
